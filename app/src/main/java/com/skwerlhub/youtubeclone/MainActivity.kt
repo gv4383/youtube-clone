@@ -1,6 +1,5 @@
 package com.skwerlhub.youtubeclone
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,13 +12,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
-
-//        recyclerView_main.setBackgroundColor(Color.BLUE)
-
         recyclerView_main.layoutManager = LinearLayoutManager(this)
-//        recyclerView_main.adapter = MainAdapter()
-
         fetchJson()
     }
 
@@ -33,10 +28,7 @@ class MainActivity : AppCompatActivity() {
         client.newCall(request).enqueue(object: Callback {
             override fun onResponse(call: Call, response: Response) {
                 val body = response.body?.string()
-//                println(body)
-
                 val gson = GsonBuilder().create()
-
                 val homeFeed = gson.fromJson(body, HomeFeed::class.java)
 
                 runOnUiThread {

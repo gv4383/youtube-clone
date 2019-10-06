@@ -9,8 +9,6 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.video_row.view.*
 
 class MainAdapter(val homeFeed: HomeFeed): RecyclerView.Adapter<CustomViewHolder>() {
-    val videoTitles = listOf("First title", "Second", "3rd", "MOOOOOORE TITLE")
-
     // numberOfItems
     override fun getItemCount(): Int {
         return homeFeed.videos.count()
